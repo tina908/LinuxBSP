@@ -4,3 +4,5 @@
 
 라즈베리파이
 우분투
+
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/e5806b41-087f-4009-8b38-f4b040363209)
