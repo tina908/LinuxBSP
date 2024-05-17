@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/pi_bsp/drivers/p306_ledkey_ioctl_rw_ksh/modules.order := {   echo /home/ubuntu/pi_bsp/drivers/p306_ledkey_ioctl_rw_ksh/ioctl_dev.ko; :; } > /home/ubuntu/pi_bsp/drivers/p306_ledkey_ioctl_rw_ksh/modules.order
