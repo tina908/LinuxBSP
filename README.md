@@ -15,6 +15,8 @@ mkmod - 드라이브에 대한 특수 파일 작성
 
 modinfo - 리눅스 모듈 조회
 
+cat /proc/misc - 연결 되어 있는 장치 확인
+
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/a23e285b-cbfd-4408-828c-b650e72a6c76)
 
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/e4775690-4fda-475b-98f5-05594a3048f4)
@@ -92,6 +94,8 @@ pi@pi06:/mnt/ubuntu_nfs $ sudo insmod led.ko onevalue=255 twostring="abcd 1234"
 
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/5ce10170-a216-4837-b834-6c5d8e9d5c70)
 
+pi@pi06:/mnt/ubuntu_nfs $ sudo rmmod led
+
 
 ## p184_led
 
@@ -116,6 +120,8 @@ pi@pi06:/mnt/ubuntu_nfs $ ./call_app
 
 8번 키를 누르면 종료
 
+pi@pi06:/mnt/ubuntu_nfs $ sudo rmmod call_dev
+
 
 ## struct
 
@@ -139,6 +145,40 @@ pi@pi06:/mnt/ubuntu_nfs $ sudo insmod ledkey_dev.ko
 pi@pi06:/mnt/ubuntu_nfs $ ./ledkey_app 0x55
 
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/e48cda21-3b72-4078-96f1-a48d5f647eef)
+
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/639a1527-c55a-4b23-b9a3-62c58dd4b544)
+
+1번 키 누르면 firefox 웹 브라우저 오픈
+
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/e3d3b7d0-cf8a-4c2b-82f9-849a44d5cfe4)
+
+2번 키 누르면 firefox 웹 브라우저 kill
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo rmmod ledkey_dev
+
+
+## p238_ledkey_blockio
+
+ubuntu@ubuntu06:~/pi_bsp/drivers/p238_ledkey_blockio$ make
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo mknod /dev/minor_led c 230 0
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo mknod /dev/minor_key c 230 0
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo insmod minor_dev.ko
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo chmod 666 /dev/minor_led
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo chmod 666 /dev/minor_key
+
+pi@pi06:/mnt/ubuntu_nfs $ ./minor_app
+
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/48e71294-280d-4d32-8b16-1ab7006adbca)
+
+
+
+
+
 
 
 
