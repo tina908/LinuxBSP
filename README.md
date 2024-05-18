@@ -71,11 +71,25 @@ ubuntu@ubuntu06:~/pi_bsp/drivers/p106_led$ make
 
 pi@pi06:/mnt/ubuntu_nfs $ sudo insmod led.ko
 
+pi@pi06:/mnt/ubuntu_nfs $ sudo rmmod led.ko
+
+## p122_led
+
+ubuntu@ubuntu06:~/pi_bsp/drivers/p122_led$ make
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo insmod led.ko onevalue=255
+
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/cf47f46e-0c83-418a-a708-05fddac18f3d)
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo rmmod led
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo insmod led.ko onevalue=255 twostring="abcd 1234"
+
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/5ce10170-a216-4837-b834-6c5d8e9d5c70)
 
 
+## p184_led
 
-
-
-
+ubuntu@ubuntu06:~/pi_bsp/drivers/p184_led$ make
 
 
