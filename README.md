@@ -15,6 +15,8 @@ dmesg - 시스템 부팅 메세지 확인
 mkmod - 드라이브에 대한 특수 파일 작성
 
 
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/e4775690-4fda-475b-98f5-05594a3048f4)
+
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/e5806b41-087f-4009-8b38-f4b040363209)
 
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/01897e9f-fc18-4f4c-86c8-c889be447d5c)
