@@ -16,6 +16,9 @@ mkmod - 드라이브에 대한 특수 파일 작성
 
 modinfo = 리눅스 모듈 조회
 
+
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/a23e285b-cbfd-4408-828c-b650e72a6c76)
+
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/e4775690-4fda-475b-98f5-05594a3048f4)
 
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/e5806b41-087f-4009-8b38-f4b040363209)
