@@ -71,7 +71,13 @@ ubuntu@ubuntu06:~/pi_bsp/drivers/p106_led$ make
 
 pi@pi06:/mnt/ubuntu_nfs $ sudo insmod led.ko
 
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/0b91e19b-d2ac-4d49-bd3d-8c00fbf4ed25)
+
 pi@pi06:/mnt/ubuntu_nfs $ sudo rmmod led.ko
+
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/65078503-b084-4421-9c2f-61058b6ca3b1)
+
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/9acf0c5e-5172-4963-964b-c062243c393c)
 
 ## p122_led
 
