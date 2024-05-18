@@ -39,6 +39,11 @@ pi@pi06:/mnt/ubuntu_nfs $ cat /proc/devices
 
 부번호는 동일한 디바이스가 여러 개 있을 때 이를 구분하기 위해 사용 (채널, 파티션개념)
 
+ubuntu@ubuntu06:~/pi_bsp/drivers/p87$ gcc mknod.c -o testmknod
+
+ubuntu@ubuntu06:~/pi_bsp/drivers/p87$ sudo ./testmknod
+
+
 
 ## p106_hello
 
