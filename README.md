@@ -98,4 +98,34 @@ pi@pi06:/mnt/ubuntu_nfs $ sudo insmod led.ko onevalue=255 twostring="abcd 1234"
 
 ubuntu@ubuntu06:~/pi_bsp/drivers/p184_led$ make
 
+pi@pi06:/mnt/ubuntu_nfs $ sudo insmod call_dev.ko
+
+pi@pi06:/mnt/ubuntu_nfs $ ./call_app
+
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/0d8d160a-d363-4bd0-ae4f-c8b07f2adc50)
+에러 발생 시
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo mknod /dev/calldev c 230 0
+pi@pi06:/mnt/ubuntu_nfs $ sudo chmod 777 /dev/calldev
+pi@pi06:/mnt/ubuntu_nfs $ ./call_app
+
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/293b1d36-fb04-4f8a-acbe-73c4830123d8)
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/6fd02a82-2558-4595-9cf8-88950c632c4f)
+
+8번 키를 누르면 종료
+
+## p238_ledkey
+
+ubuntu@ubuntu06:~/pi_bsp/drivers/p238_ledkey$ make
+
+
+
+
+
+
+
+
+
+
+
 
