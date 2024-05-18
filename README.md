@@ -15,6 +15,8 @@ mkmod - 드라이브에 대한 특수 파일 작성
 
 modinfo - 리눅스 모듈 조회
 
+cat /proc/misc - 연결 되어 있는 장치 확인
+
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/a23e285b-cbfd-4408-828c-b650e72a6c76)
 
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/e4775690-4fda-475b-98f5-05594a3048f4)
