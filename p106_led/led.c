@@ -39,6 +39,8 @@ static int hello_init(void)
 static void hello_exit(void)
 {
     printk("Goodbye , world\n");
+    gpioLedSet(0x00);
+    gpioLedFree();
 }
 module_init(hello_init);
 module_exit(hello_exit);
@@ -63,7 +65,7 @@ int gpioLedInit(void)
             printk("Failed gpio_direction_output() gpio%d error \n",gpioLed[i]);
             return ret;
         }
-             }
+    }
     return ret;
 }
 void gpioLedSet(long val)

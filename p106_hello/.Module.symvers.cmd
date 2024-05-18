@@ -1,1 +1,0 @@
-cmd_/home/ubuntu/pi_bsp/drivers/p106_hello/Module.symvers :=  sed 's/ko$$/o/'  /home/ubuntu/pi_bsp/drivers/p106_hello/modules.order | scripts/mod/modpost -m -a    -o /home/ubuntu/pi_bsp/drivers/p106_hello/Module.symvers -e -i Module.symvers -T - 
