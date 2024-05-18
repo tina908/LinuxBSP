@@ -92,6 +92,8 @@ pi@pi06:/mnt/ubuntu_nfs $ sudo insmod led.ko onevalue=255 twostring="abcd 1234"
 
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/5ce10170-a216-4837-b834-6c5d8e9d5c70)
 
+pi@pi06:/mnt/ubuntu_nfs $ sudo rmmod led
+
 
 ## p184_led
 
@@ -116,6 +118,8 @@ pi@pi06:/mnt/ubuntu_nfs $ ./call_app
 
 8번 키를 누르면 종료
 
+pi@pi06:/mnt/ubuntu_nfs $ sudo rmmod call_dev
+
 
 ## struct
 
@@ -139,6 +143,18 @@ pi@pi06:/mnt/ubuntu_nfs $ sudo insmod ledkey_dev.ko
 pi@pi06:/mnt/ubuntu_nfs $ ./ledkey_app 0x55
 
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/e48cda21-3b72-4078-96f1-a48d5f647eef)
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo rmmod ledkey_dev
+
+
+## p238_ledkey_blockio
+
+ubuntu@ubuntu06:~/pi_bsp/drivers/p238_ledkey_blockio$ make
+
+
+
+
+
 
 
 
