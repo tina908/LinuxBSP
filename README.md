@@ -29,6 +29,17 @@ mkmod - 드라이브에 대한 특수 파일 작성
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/7def1d10-9ebd-4f05-8d70-a924f2a9da64)
 
 
+pi@pi06:/mnt/ubuntu_nfs $ cat /proc/devices
+
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/d8302475-739f-46a9-9307-e554b3b8adf4)
+
+주번호 장치이름
+
+주번호는 디바이스를 구분하기 위해 사용
+
+부번호는 동일한 디바이스가 여러 개 있을 때 이를 구분하기 위해 사용 (채널, 파티션개념)
+
+
 ## p106_hello
 
 ubuntu@ubuntu06:~/pi_bsp/drivers/p106_hello$ make
