@@ -5,7 +5,6 @@
 
 ## 리눅스 드라이버
 
-
 insmod - 해당 모듈 적재
 
 rmmod - 적재된 모듈 제거
@@ -15,7 +14,6 @@ dmesg - 시스템 부팅 메세지 확인
 mkmod - 드라이브에 대한 특수 파일 작성
 
 modinfo - 리눅스 모듈 조회
-
 
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/a23e285b-cbfd-4408-828c-b650e72a6c76)
 
@@ -79,6 +77,7 @@ pi@pi06:/mnt/ubuntu_nfs $ sudo rmmod led.ko
 
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/9acf0c5e-5172-4963-964b-c062243c393c)
 
+
 ## p122_led
 
 ubuntu@ubuntu06:~/pi_bsp/drivers/p122_led$ make
@@ -116,6 +115,16 @@ pi@pi06:/mnt/ubuntu_nfs $ ./call_app
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/6fd02a82-2558-4595-9cf8-88950c632c4f)
 
 8번 키를 누르면 종료
+
+
+## struct
+
+ubuntu@ubuntu06:~/pi_bsp/drivers$ gcc struct.c -o struct
+
+ubuntu@ubuntu06:~/pi_bsp/drivers$ ./struct
+
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/30917333-6479-4db6-80df-f0599d794d9b)
+
 
 ## p238_ledkey
 
