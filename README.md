@@ -14,7 +14,7 @@ dmesg - 시스템 부팅 메세지 확인
 
 mkmod - 드라이브에 대한 특수 파일 작성
 
-modinfo = 리눅스 모듈 조회
+modinfo - 리눅스 모듈 조회
 
 
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/a23e285b-cbfd-4408-828c-b650e72a6c76)
