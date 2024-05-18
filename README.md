@@ -142,6 +142,14 @@ pi@pi06:/mnt/ubuntu_nfs $ sudo insmod ledkey_dev.ko
 
 pi@pi06:/mnt/ubuntu_nfs $ ./ledkey_app 0x55
 
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/639a1527-c55a-4b23-b9a3-62c58dd4b544)
+
+1번 키 누르면 firefox 웹 브라우저 오픈
+
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/bbfb24f8-7b15-421f-a03e-95bfee68b89d)
+
+1번 키 누르면 firefox 웹 브라우저 kill
+
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/e48cda21-3b72-4078-96f1-a48d5f647eef)
 
 pi@pi06:/mnt/ubuntu_nfs $ sudo rmmod ledkey_dev
