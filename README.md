@@ -161,6 +161,20 @@ pi@pi06:/mnt/ubuntu_nfs $ sudo rmmod ledkey_dev
 
 ubuntu@ubuntu06:~/pi_bsp/drivers/p238_ledkey_blockio$ make
 
+pi@pi06:/mnt/ubuntu_nfs $ sudo mknod /dev/minor_led c 230 0
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo mknod /dev/minor_key c 230 0
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo insmod minor_dev.ko
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo chmod 666 /dev/minor_led
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo chmod 666 /dev/minor_key
+
+pi@pi06:/mnt/ubuntu_nfs $ ./minor_app
+
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/48e71294-280d-4d32-8b16-1ab7006adbca)
+
 
 
 
