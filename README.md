@@ -103,10 +103,13 @@ pi@pi06:/mnt/ubuntu_nfs $ sudo insmod call_dev.ko
 pi@pi06:/mnt/ubuntu_nfs $ ./call_app
 
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/0d8d160a-d363-4bd0-ae4f-c8b07f2adc50)
+
 에러 발생 시
 
 pi@pi06:/mnt/ubuntu_nfs $ sudo mknod /dev/calldev c 230 0
+
 pi@pi06:/mnt/ubuntu_nfs $ sudo chmod 777 /dev/calldev
+
 pi@pi06:/mnt/ubuntu_nfs $ ./call_app
 
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/293b1d36-fb04-4f8a-acbe-73c4830123d8)
