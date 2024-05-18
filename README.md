@@ -130,12 +130,15 @@ ubuntu@ubuntu06:~/pi_bsp/drivers$ ./struct
 
 ubuntu@ubuntu06:~/pi_bsp/drivers/p238_ledkey$ make
 
+pi@pi06:/mnt/ubuntu_nfs $ sudo mknod /dev/ledkey c 230 0
 
+pi@pi06:/mnt/ubuntu_nfs $ sudo chmod 666 /dev/ledkey
 
+pi@pi06:/mnt/ubuntu_nfs $ sudo insmod ledkey_dev.ko
 
+pi@pi06:/mnt/ubuntu_nfs $ ./ledkey_app 0x55
 
-
-
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/e48cda21-3b72-4078-96f1-a48d5f647eef)
 
 
 
