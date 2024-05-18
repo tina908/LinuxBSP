@@ -1,4 +1,4 @@
-APP := ledKey_app
+APP := ledkey_app
 MOD := ledKey_dev
 OBJ := $(APP).o
 obj-m := $(MOD).o

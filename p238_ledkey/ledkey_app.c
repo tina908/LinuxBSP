@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
 			if(key_data == 0x1)
 				system("/usr/bin/firefox &");
 			else if(key_data == 0x2)
-				system("/usr/bin/killall firefox")l
+				system("/usr/bin/killall firefox");
 
 			else if(key_data == 0x80)
 				break;
