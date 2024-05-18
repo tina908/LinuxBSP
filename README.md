@@ -148,7 +148,7 @@ pi@pi06:/mnt/ubuntu_nfs $ ./ledkey_app 0x55
 
 1번 키 누르면 firefox 웹 브라우저 오픈
 
-![image](https://github.com/tina908/LinuxBSP/assets/68736697/6f97b007-2eb7-4149-b6ee-eacbde14ef22)
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/e3d3b7d0-cf8a-4c2b-82f9-849a44d5cfe4)
 
 2번 키 누르면 firefox 웹 브라우저 kill
 
