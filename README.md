@@ -43,6 +43,7 @@ ubuntu@ubuntu06:~/pi_bsp/drivers/p87$ gcc mknod.c -o testmknod
 
 ubuntu@ubuntu06:~/pi_bsp/drivers/p87$ sudo ./testmknod
 
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/e2b2f254-4ac8-4bba-a57c-d216fa60d6d9)
 
 
 ## p106_hello
