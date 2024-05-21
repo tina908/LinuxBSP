@@ -1,1 +1,0 @@
-cmd_/home/ubuntu/pi_bsp/drivers/p369_ledkey_int_kmalloc_ksh/Module.symvers :=  sed 's/ko$$/o/'  /home/ubuntu/pi_bsp/drivers/p369_ledkey_int_kmalloc_ksh/modules.order | scripts/mod/modpost -m -a    -o /home/ubuntu/pi_bsp/drivers/p369_ledkey_int_kmalloc_ksh/Module.symvers -e -i Module.symvers -T - 
