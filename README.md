@@ -193,7 +193,9 @@ pi@pi06:/mnt/ubuntu_nfs $ ./minor_app
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/48e71294-280d-4d32-8b16-1ab7006adbca)
 
 
+## p306_ledkey_ioctl_rw
 
+ubuntu@ubuntu06:~/pi_bsp/drivers/p306_ledkey_ioctl_rw$ make
 
 
 
