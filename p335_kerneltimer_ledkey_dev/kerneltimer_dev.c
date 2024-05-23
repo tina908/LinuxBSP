@@ -19,7 +19,7 @@
 #define OFF 0
 #define ON 1
 
-#define LEDKEY_DEV_NAME            "ioctldev"
+#define LEDKEY_DEV_NAME            "kerneltimer_ledkey_dev"
 #define LEDKEY_DEV_MAJOR            230
 
 static int gpioLed[GPIOLEDCNT] = {6,7,8,9,10,11,12,13};
@@ -42,6 +42,7 @@ module_param(timerVal, int, 0);
 static int ledVal = 0;
 module_param(ledVal, int, 0);
 struct timer_list timerLed;
+struct file_operations ledkey_fops;
 
 static int gpioLedInit(void)
 {
@@ -74,6 +75,7 @@ static void gpioLedSet(long val)
 //      gpio_set_value(gpioLed[i],(val>>i) & 0x1);
         gpio_set_value(gpioLed[i],(val>>i) & (0x01));
     }
+	ledVal=val;
 }
 static void gpioLedFree(void)
 {
@@ -114,10 +116,10 @@ static int gpioKeyGet(void)
     int keyData=0;
     for(i=0;i<GPIOKEYCNT;i++)
     {
-//      ret=gpio_get_value(gpioKey[i]) << i;
-//      keyData |= ret;
-        ret=gpio_get_value(gpioKey[i]);
-        keyData = keyData | ( ret << i );
+		ret=gpio_get_value(gpioKey[i]) << i;
+		keyData |= ret;
+//        ret=gpio_get_value(gpioKey[i]);
+//        keyData = keyData | ( ret << i );
     }
     return keyData;
 }
@@ -142,7 +144,7 @@ static int ledkey_open (struct inode *inode, struct file *filp)
 
 static ssize_t ledkey_read(struct file *filp, char *buf, size_t count, loff_t *f_pos)
 {
-//  int i;
+//	int i;
     char kbuf;
 //  printk( "ledkey read -> buf : %08X, count : %08X \n", (unsigned int)buf, count );
     kbuf=gpioKeyGet();
@@ -156,7 +158,7 @@ static ssize_t ledkey_read(struct file *filp, char *buf, size_t count, loff_t *f
 
 static ssize_t ledkey_write (struct file *filp, const char *buf, size_t count, loff_t *f_pos)
 {
-//  int i;
+//	int i;
     char kbuf;
 //  printk( "ledkey write -> buf : %08X, count : %08X  %d\n", (unsigned int)buf, count, *buf );
 //  for(i=0; i<count; i++)
@@ -178,16 +180,16 @@ static int ledkey_release (struct inode *inode, struct file *filp)
 {
     printk( "ledkey release \n" );
     module_put(THIS_MODULE);
-	if(gpio_is_valid(gpioLed[0]))
-        gpioLedInit();
-    if(gpio_is_valid(gpioKey[0]))
-        gpioKeyInit();
+//	if(gpio_is_valid(gpioLed[0]))
+//        gpioLedInit();
+//    if(gpio_is_valid(gpioKey[0]))
+//        gpioKeyInit();
 	return 0;
 }
 
 struct file_operations ledkey_fops =
 {
-	.owner    = THIS_MODULE,
+//	.owner    = THIS_MODULE,
     .open     = ledkey_open,
     .read     = ledkey_read,
     .write    = ledkey_write,
@@ -213,10 +215,12 @@ static void kerneltimer_func(struct timer_list *t)
 }
 static int kerneltimer_init(void)
 {
-	int result;
+	int result=0;
+	printk("ledkey ledkey_init \n");
 #if DEBUG
 	printk("timerVal : %d , sec : %d \n",timerVal,timerVal/HZ);
 #endif
+	kerneltimer_registertimer(timerVal);
 	result = register_chrdev(LEDKEY_DEV_MAJOR, LEDKEY_DEV_NAME, &ledkey_fops);
 	if (result < 0) {
         printk("Failed to register character device\n");
@@ -227,20 +231,22 @@ static int kerneltimer_init(void)
     	return result;
 
     result = gpioKeyInit();
-    if(result < 0)
-    	return result;
+//    if(result < 0)
+//    	return result;
 
-	kerneltimer_registertimer(timerVal);
+//	kerneltimer_registertimer(timerVal);
 	return 0;
 }
 static void kerneltimer_exit(void)
 {
-	if(timer_pending(&timerLed))
-		del_timer(&timerLed);
+	printk("ledkey ledkey_exit \n");
+	unregister_chrdev(LEDKEY_DEV_MAJOR, LEDKEY_DEV_NAME);
+	gpioLedSet(0x00);
 	gpioLedFree();
     gpioKeyFree();
 
-	unregister_chrdev(LEDKEY_DEV_MAJOR, LEDKEY_DEV_NAME);
+	if(timer_pending(&timerLed))
+		del_timer(&timerLed);
 }
 module_init(kerneltimer_init);
 module_exit(kerneltimer_exit);
