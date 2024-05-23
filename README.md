@@ -199,7 +199,28 @@ ubuntu@ubuntu06:~/pi_bsp/drivers/p306_ledkey_ioctl_rw$ make
 
 
 
+## p335_kerneltimer_ledkey_dev
 
+ubuntu@ubuntu06:~/pi_bsp/drivers/p335_kerneltimer_ledkey_dev$ make
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo insmod kerneltimer.ko timerVal=50 ledVal=0X55
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo mknod /dev/kerneltimer c 230 0
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo chmod 666 /dev/kerneltimer
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo insmod kerneltimer_dev.ko
+
+pi@pi06:/mnt/ubuntu_nfs $ ./kerneltimer_app 0x55
+
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/19b9b7a8-84ce-441e-9b1b-731c1ec82dbe)
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo rmmod kerneltimer
+
+키를 누르면 해당 번호의 LED가 켜지고 나머지는 꺼졌다가, 그 후 나머지 LED는 켜지고 눌린 키의 LED는 꺼집니다.
+이 상태가 반복하면서 껐다켰다 반복, 8번 키를 눌렀을 때 종료
+led on/off 속도 : timerVal=50
+초기 상태 : ledVal=0X55
 
 
 
