@@ -224,4 +224,31 @@ led on/off 속도 : timerVal=50
 초기 상태 : ledVal=0X55
 ```
 
+## p432_ledkey_poll
+
+ubuntu@ubuntu06:~/pi_bsp/drivers/p432_ledkey_poll$ make
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo mknod /dev/ledkey c 230 0
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo chmod 666 /dev/ledkey
+
+pi@pi06:/mnt/ubuntu_nfs $ sudo insmod ledkey_dev.ko
+
+pi@pi06:/mnt/ubuntu_nfs $ ./ledkey_app 0xff
+
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/e07cf8f3-8e44-4105-9228-4659494951ca)
+
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/5f79f7c0-3695-47e9-9ab5-70f5a01b1f9e)
+
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/80f18dad-cc07-41a8-8004-5b9e6998d54a)
+
+
+'''
+poll time out 대기시간은 2초
+키를 누르면 해당 번호의 LED가 켜짐
+스위치 255 하면 다 켜짐 0은 다꺼짐 (2진수)
+'''
+
+
+
 
