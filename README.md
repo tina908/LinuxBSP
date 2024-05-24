@@ -250,8 +250,28 @@ pi@pi06:/mnt/ubuntu_nfs $ ./ledkey_app 0xff
 >키를 누르면 해당 번호의 LED가 켜짐   
 >스위치 255 하면 다 켜짐 0은 다꺼짐 (2진수)
 >8번 키를 누르거나 q스위치를 눌렸을 때 종료   
+```
+pi@pi06:/mnt/ubuntu_nfs $ sudo rmmod ledkey
+```
+## p399_ledkey_poll_new
+```
+ubuntu@ubuntu06:~/pi_bsp/drivers/p399_ledkey_poll_new$ make
 
+pi@pi06:/mnt/ubuntu_nfs $ sudo mknod /dev/ledkey c 230 0
 
+pi@pi06:/mnt/ubuntu_nfs $ sudo chmod 666 /dev/ledkey
 
+pi@pi06:/mnt/ubuntu_nfs $ sudo insmod ledkey_dev.ko
 
+pi@pi06:/mnt/ubuntu_nfs $ ./ledkey_app 0xff
+```
+![image](https://github.com/tina908/LinuxBSP/assets/68736697/ff9dfb82-18ba-41d7-b1d1-5082afa99ed6)
+
+>poll time out 대기시간은 2초   
+>키를 누르면 해당 번호의 LED가 켜짐   
+>스위치 255 하면 다 켜짐 0은 다꺼짐 (2진수)
+>8번 키를 누르거나 q스위치를 눌렸을 때 종료   
+```
+pi@pi06:/mnt/ubuntu_nfs $ sudo rmmod ledkey
+```
 
