@@ -5,19 +5,19 @@
 
 ## 리눅스 드라이버
 
-```
-insmod - 해당 모듈 적재
 
-rmmod - 적재된 모듈 제거
+* insmod - 해당 모듈 적재
 
-dmesg - 시스템 부팅 메세지 확인
+* rmmod - 적재된 모듈 제거
 
-mkmod - 드라이브에 대한 특수 파일 작성
+* dmesg - 시스템 부팅 메세지 확인
 
-modinfo - 리눅스 모듈 조회
+* mkmod - 드라이브에 대한 특수 파일 작성
 
-cat /proc/misc - 연결 되어 있는 장치 확인
-```
+* modinfo - 리눅스 모듈 조회
+
+* cat /proc/misc - 연결 되어 있는 장치 확인
+
 
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/a23e285b-cbfd-4408-828c-b650e72a6c76)
 
@@ -30,7 +30,7 @@ cat /proc/misc - 연결 되어 있는 장치 확인
 
 ## p87
 
-디바이스 노드 만들기
+### 디바이스 노드 만들기
 
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/7def1d10-9ebd-4f05-8d70-a924f2a9da64)
 
@@ -39,13 +39,11 @@ pi@pi06:/mnt/ubuntu_nfs $ cat /proc/devices
 ```
 
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/d8302475-739f-46a9-9307-e554b3b8adf4)
-```
-주번호 장치이름
 
-주번호는 디바이스를 구분하기 위해 사용
+>주번호 장치이름   
+>주번호는 디바이스를 구분하기 위해 사용   
+>부번호는 동일한 디바이스가 여러 개 있을 때 이를 구분하기 위해 사용 (채널, 파티션개념)   
 
-부번호는 동일한 디바이스가 여러 개 있을 때 이를 구분하기 위해 사용 (채널, 파티션개념)
-```
 ```
 ubuntu@ubuntu06:~/pi_bsp/drivers/p87$ gcc mknod.c -o testmknod
 
@@ -113,7 +111,7 @@ pi@pi06:/mnt/ubuntu_nfs $ ./call_app
 ```
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/0d8d160a-d363-4bd0-ae4f-c8b07f2adc50)
 
-에러 발생 시
+>에러 발생 시
 ```
 pi@pi06:/mnt/ubuntu_nfs $ sudo mknod /dev/calldev c 230 0
 
@@ -123,9 +121,9 @@ pi@pi06:/mnt/ubuntu_nfs $ ./call_app
 ```
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/293b1d36-fb04-4f8a-acbe-73c4830123d8)
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/6fd02a82-2558-4595-9cf8-88950c632c4f)
-```
-8번 키를 누르면 종료
-```
+
+>8번 키를 누르면 종료
+
 ```
 pi@pi06:/mnt/ubuntu_nfs $ sudo rmmod call_dev
 ```
@@ -155,11 +153,11 @@ pi@pi06:/mnt/ubuntu_nfs $ ./ledkey_app 0x55
 
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/639a1527-c55a-4b23-b9a3-62c58dd4b544)
 
-1번 키 누르면 firefox 웹 브라우저 오픈
+>1번 키 누르면 firefox 웹 브라우저 오픈
 
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/e3d3b7d0-cf8a-4c2b-82f9-849a44d5cfe4)
 
-2번 키 누르면 firefox 웹 브라우저 kill
+>2번 키 누르면 firefox 웹 브라우저 kill
 ```
 pi@pi06:/mnt/ubuntu_nfs $ sudo rmmod ledkey_dev
 ```
@@ -224,12 +222,11 @@ pi@pi06:/mnt/ubuntu_nfs $ ./kerneltimer_app 0x55
 ```
 pi@pi06:/mnt/ubuntu_nfs $ sudo rmmod kerneltimer
 ```
-```
-키를 누르면 해당 번호의 LED가 켜지고 나머지는 꺼졌다가, 그 후 나머지 LED는 켜지고 눌린 키의 LED는 꺼집니다.
-이 상태가 반복하면서 껐다켰다 반복, 8번 키를 눌렀을 때 종료
-led on/off 속도 : timerVal=50
-초기 상태 : ledVal=0X55
-```
+
+>키를 누르면 해당 번호의 LED가 켜지고 나머지는 꺼졌다가, 그 후 나머지 LED는 켜지고 눌린 키의 LED는 꺼집니다.   
+>이 상태가 반복하면서 껐다켰다 반복, 8번 키를 눌렀을 때 종료   
+>led on/off 속도 : timerVal=50   
+>초기 상태 : ledVal=0X55    
 
 ## p432_ledkey_poll
 ```
@@ -249,12 +246,10 @@ pi@pi06:/mnt/ubuntu_nfs $ ./ledkey_app 0xff
 
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/80f18dad-cc07-41a8-8004-5b9e6998d54a)
 
+>poll time out 대기시간은 2초   
+>키를 누르면 해당 번호의 LED가 켜짐   
+>스위치 255 하면 다 켜짐 0은 다꺼짐 (2진수)   
 
-```
-poll time out 대기시간은 2초
-키를 누르면 해당 번호의 LED가 켜짐
-스위치 255 하면 다 켜짐 0은 다꺼짐 (2진수)
-```
 
 
 
