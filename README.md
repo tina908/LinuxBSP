@@ -243,11 +243,11 @@ pi@pi06:/mnt/ubuntu_nfs $ ./ledkey_app 0xff
 ![image](https://github.com/tina908/LinuxBSP/assets/68736697/80f18dad-cc07-41a8-8004-5b9e6998d54a)
 
 
-'''
+```
 poll time out 대기시간은 2초
 키를 누르면 해당 번호의 LED가 켜짐
 스위치 255 하면 다 켜짐 0은 다꺼짐 (2진수)
-'''
+```
 
 
 
