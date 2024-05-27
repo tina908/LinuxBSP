@@ -1,10 +1,8 @@
-cmd_/home/ubuntu/pi_bsp/drivers/p335_kerneltimer/kerneltimer.mod.o := arm-linux-gnueabihf-gcc -Wp,-MMD,/home/ubuntu/pi_bsp/drivers/p335_kerneltimer/.kerneltimer.mod.o.d -nostdinc -I./arch/arm/include -I./arch/arm/include/generated -I./include -I./arch/arm/include/uapi -I./arch/arm/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -mlittle-endian -fmacro-prefix-map=./= -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Wno-format-security -std=gnu11 -fno-dwarf2-cfi-asm -fno-ipa-sra -mabi=aapcs-linux -mfpu=vfp -funwind-tables -mtp=cp15 -marm -Wa,-mno-warn-deprecated -D__LINUX_ARM_ARCH__=7 -march=armv7-a -msoft-float -Uarm -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-address-of-packed-member -O2 --param=allow-store-data-races=0 -Wframe-larger-than=1024 -fstack-protector-strong -Wno-main -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-stack-clash-protection -pg -Wdeclaration-after-statement -Wvla -Wno-pointer-sign -Wcast-function-type -Wno-stringop-truncation -Wno-stringop-overflow -Wno-restrict -Wno-maybe-uninitialized -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -fno-strict-overflow -fno-stack-check -fconserve-stack -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wno-packed-not-aligned -DMODULE -DKBUILD_BASENAME='"kerneltimer.mod"' -DKBUILD_MODNAME='"kerneltimer"' -D__KBUILD_MODNAME=kmod_kerneltimer -c -o /home/ubuntu/pi_bsp/drivers/p335_kerneltimer/kerneltimer.mod.o /home/ubuntu/pi_bsp/drivers/p335_kerneltimer/kerneltimer.mod.c
+cmd_/home/ubuntu/pi_bsp/drivers/p399_ledkey_blockio/ledkey_dev.o := arm-linux-gnueabihf-gcc -Wp,-MMD,/home/ubuntu/pi_bsp/drivers/p399_ledkey_blockio/.ledkey_dev.o.d  -nostdinc -I./arch/arm/include -I./arch/arm/include/generated  -I./include -I./arch/arm/include/uapi -I./arch/arm/include/generated/uapi -I./include/uapi -I./include/generated/uapi -include ./include/linux/compiler-version.h -include ./include/linux/kconfig.h -include ./include/linux/compiler_types.h -D__KERNEL__ -mlittle-endian -fmacro-prefix-map=./= -Wall -Wundef -Werror=strict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -fshort-wchar -fno-PIE -Werror=implicit-function-declaration -Werror=implicit-int -Werror=return-type -Wno-format-security -std=gnu11 -fno-dwarf2-cfi-asm -fno-ipa-sra -mabi=aapcs-linux -mfpu=vfp -funwind-tables -mtp=cp15 -marm -Wa,-mno-warn-deprecated -D__LINUX_ARM_ARCH__=7 -march=armv7-a -msoft-float -Uarm -fno-delete-null-pointer-checks -Wno-frame-address -Wno-format-truncation -Wno-format-overflow -Wno-address-of-packed-member -O2 --param=allow-store-data-races=0 -Wframe-larger-than=1024 -fstack-protector-strong -Wno-main -Wno-unused-but-set-variable -Wno-unused-const-variable -fno-stack-clash-protection -pg -Wdeclaration-after-statement -Wvla -Wno-pointer-sign -Wcast-function-type -Wno-stringop-truncation -Wno-stringop-overflow -Wno-restrict -Wno-maybe-uninitialized -Wno-alloc-size-larger-than -Wimplicit-fallthrough=5 -fno-strict-overflow -fno-stack-check -fconserve-stack -Werror=date-time -Werror=incompatible-pointer-types -Werror=designated-init -Wno-packed-not-aligned  -DMODULE  -DKBUILD_BASENAME='"ledkey_dev"' -DKBUILD_MODNAME='"ledkey_dev"' -D__KBUILD_MODNAME=kmod_ledkey_dev -c -o /home/ubuntu/pi_bsp/drivers/p399_ledkey_blockio/ledkey_dev.o /home/ubuntu/pi_bsp/drivers/p399_ledkey_blockio/ledkey_dev.c  
 
-source_/home/ubuntu/pi_bsp/drivers/p335_kerneltimer/kerneltimer.mod.o := /home/ubuntu/pi_bsp/drivers/p335_kerneltimer/kerneltimer.mod.c
+source_/home/ubuntu/pi_bsp/drivers/p399_ledkey_blockio/ledkey_dev.o := /home/ubuntu/pi_bsp/drivers/p399_ledkey_blockio/ledkey_dev.c
 
-deps_/home/ubuntu/pi_bsp/drivers/p335_kerneltimer/kerneltimer.mod.o := \
-    $(wildcard include/config/MODULE_UNLOAD) \
-    $(wildcard include/config/RETPOLINE) \
+deps_/home/ubuntu/pi_bsp/drivers/p399_ledkey_blockio/ledkey_dev.o := \
   include/linux/compiler-version.h \
     $(wildcard include/config/CC_VERSION_TEXT) \
   include/linux/kconfig.h \
@@ -18,39 +16,15 @@ deps_/home/ubuntu/pi_bsp/drivers/p335_kerneltimer/kerneltimer.mod.o := \
     $(wildcard include/config/CC_HAS_ASM_INLINE) \
   include/linux/compiler_attributes.h \
   include/linux/compiler-gcc.h \
+    $(wildcard include/config/RETPOLINE) \
     $(wildcard include/config/ARCH_USE_BUILTIN_BSWAP) \
     $(wildcard include/config/SHADOW_CALL_STACK) \
     $(wildcard include/config/KCOV) \
-  include/linux/module.h \
-    $(wildcard include/config/MODULES) \
-    $(wildcard include/config/SYSFS) \
-    $(wildcard include/config/MODULES_TREE_LOOKUP) \
-    $(wildcard include/config/LIVEPATCH) \
-    $(wildcard include/config/STACKTRACE_BUILD_ID) \
-    $(wildcard include/config/ARCH_USES_CFI_TRAPS) \
-    $(wildcard include/config/MODULE_SIG) \
-    $(wildcard include/config/ARCH_WANTS_MODULES_DATA_IN_VMALLOC) \
-    $(wildcard include/config/GENERIC_BUG) \
-    $(wildcard include/config/KALLSYMS) \
-    $(wildcard include/config/SMP) \
-    $(wildcard include/config/TRACEPOINTS) \
-    $(wildcard include/config/TREE_SRCU) \
-    $(wildcard include/config/BPF_EVENTS) \
-    $(wildcard include/config/DEBUG_INFO_BTF_MODULES) \
-    $(wildcard include/config/JUMP_LABEL) \
-    $(wildcard include/config/TRACING) \
-    $(wildcard include/config/EVENT_TRACING) \
-    $(wildcard include/config/FTRACE_MCOUNT_RECORD) \
-    $(wildcard include/config/KPROBES) \
-    $(wildcard include/config/HAVE_STATIC_CALL_INLINE) \
-    $(wildcard include/config/KUNIT) \
-    $(wildcard include/config/PRINTK_INDEX) \
-    $(wildcard include/config/CONSTRUCTORS) \
-    $(wildcard include/config/FUNCTION_ERROR_INJECTION) \
-  include/linux/list.h \
-    $(wildcard include/config/DEBUG_LIST) \
-  include/linux/container_of.h \
-  include/linux/build_bug.h \
+  include/linux/init.h \
+    $(wildcard include/config/HAVE_ARCH_PREL32_RELOCATIONS) \
+    $(wildcard include/config/STRICT_KERNEL_RWX) \
+    $(wildcard include/config/STRICT_MODULE_RWX) \
+    $(wildcard include/config/LTO_CLANG) \
   include/linux/compiler.h \
     $(wildcard include/config/TRACE_BRANCH_PROFILING) \
     $(wildcard include/config/PROFILE_ALL_BRANCHES) \
@@ -84,6 +58,37 @@ deps_/home/ubuntu/pi_bsp/drivers/p335_kerneltimer/kerneltimer.mod.o := \
     $(wildcard include/config/KCSAN) \
     $(wildcard include/config/KCSAN_WEAK_MEMORY) \
     $(wildcard include/config/KCSAN_IGNORE_ATOMICS) \
+  include/linux/module.h \
+    $(wildcard include/config/MODULES) \
+    $(wildcard include/config/SYSFS) \
+    $(wildcard include/config/MODULES_TREE_LOOKUP) \
+    $(wildcard include/config/LIVEPATCH) \
+    $(wildcard include/config/STACKTRACE_BUILD_ID) \
+    $(wildcard include/config/ARCH_USES_CFI_TRAPS) \
+    $(wildcard include/config/MODULE_SIG) \
+    $(wildcard include/config/ARCH_WANTS_MODULES_DATA_IN_VMALLOC) \
+    $(wildcard include/config/GENERIC_BUG) \
+    $(wildcard include/config/KALLSYMS) \
+    $(wildcard include/config/SMP) \
+    $(wildcard include/config/TRACEPOINTS) \
+    $(wildcard include/config/TREE_SRCU) \
+    $(wildcard include/config/BPF_EVENTS) \
+    $(wildcard include/config/DEBUG_INFO_BTF_MODULES) \
+    $(wildcard include/config/JUMP_LABEL) \
+    $(wildcard include/config/TRACING) \
+    $(wildcard include/config/EVENT_TRACING) \
+    $(wildcard include/config/FTRACE_MCOUNT_RECORD) \
+    $(wildcard include/config/KPROBES) \
+    $(wildcard include/config/HAVE_STATIC_CALL_INLINE) \
+    $(wildcard include/config/KUNIT) \
+    $(wildcard include/config/PRINTK_INDEX) \
+    $(wildcard include/config/MODULE_UNLOAD) \
+    $(wildcard include/config/CONSTRUCTORS) \
+    $(wildcard include/config/FUNCTION_ERROR_INJECTION) \
+  include/linux/list.h \
+    $(wildcard include/config/DEBUG_LIST) \
+  include/linux/container_of.h \
+  include/linux/build_bug.h \
   include/linux/err.h \
   arch/arm/include/generated/uapi/asm/errno.h \
   include/uapi/asm-generic/errno.h \
@@ -271,7 +276,6 @@ deps_/home/ubuntu/pi_bsp/drivers/p335_kerneltimer/kerneltimer.mod.o := \
   include/linux/stringify.h \
   include/linux/export.h \
     $(wildcard include/config/MODVERSIONS) \
-    $(wildcard include/config/HAVE_ARCH_PREL32_RELOCATIONS) \
     $(wildcard include/config/TRIM_UNUSED_KSYMS) \
   arch/arm/include/asm/linkage.h \
   include/linux/kstrtox.h \
@@ -286,10 +290,6 @@ deps_/home/ubuntu/pi_bsp/drivers/p335_kerneltimer/kerneltimer.mod.o := \
     $(wildcard include/config/PRINTK) \
     $(wildcard include/config/DYNAMIC_DEBUG) \
     $(wildcard include/config/DYNAMIC_DEBUG_CORE) \
-  include/linux/init.h \
-    $(wildcard include/config/STRICT_KERNEL_RWX) \
-    $(wildcard include/config/STRICT_MODULE_RWX) \
-    $(wildcard include/config/LTO_CLANG) \
   include/linux/kern_levels.h \
   include/linux/ratelimit_types.h \
   include/linux/spinlock_types_raw.h \
@@ -766,17 +766,267 @@ deps_/home/ubuntu/pi_bsp/drivers/p335_kerneltimer/kerneltimer.mod.o := \
     $(wildcard include/config/MODULES_USE_ELF_REL) \
     $(wildcard include/config/MODULES_USE_ELF_RELA) \
   arch/arm/include/asm/unwind.h \
-  include/linux/build-salt.h \
-    $(wildcard include/config/BUILD_SALT) \
-  include/linux/elfnote.h \
-  include/linux/elfnote-lto.h \
-    $(wildcard include/config/LTO) \
-  include/linux/export-internal.h \
-  include/linux/vermagic.h \
-    $(wildcard include/config/PREEMPT_BUILD) \
-  include/generated/utsrelease.h \
-  arch/arm/include/asm/vermagic.h \
+  include/linux/fs.h \
+    $(wildcard include/config/READ_ONLY_THP_FOR_FS) \
+    $(wildcard include/config/FS_POSIX_ACL) \
+    $(wildcard include/config/CGROUP_WRITEBACK) \
+    $(wildcard include/config/IMA) \
+    $(wildcard include/config/FILE_LOCKING) \
+    $(wildcard include/config/FSNOTIFY) \
+    $(wildcard include/config/FS_ENCRYPTION) \
+    $(wildcard include/config/FS_VERITY) \
+    $(wildcard include/config/EPOLL) \
+    $(wildcard include/config/UNICODE) \
+    $(wildcard include/config/QUOTA) \
+    $(wildcard include/config/FS_DAX) \
+    $(wildcard include/config/BLOCK) \
+  include/linux/wait_bit.h \
+  include/linux/kdev_t.h \
+  include/uapi/linux/kdev_t.h \
+  include/linux/dcache.h \
+  include/linux/rculist_bl.h \
+  include/linux/list_bl.h \
+  include/linux/bit_spinlock.h \
+  include/linux/lockref.h \
+    $(wildcard include/config/ARCH_USE_CMPXCHG_LOCKREF) \
+  include/linux/stringhash.h \
+    $(wildcard include/config/DCACHE_WORD_ACCESS) \
+  include/linux/hash.h \
+    $(wildcard include/config/HAVE_ARCH_HASH) \
+  include/linux/path.h \
+  include/linux/list_lru.h \
+    $(wildcard include/config/MEMCG_KMEM) \
+  include/linux/shrinker.h \
+    $(wildcard include/config/SHRINKER_DEBUG) \
+  include/linux/capability.h \
+  include/uapi/linux/capability.h \
+  include/linux/semaphore.h \
+  include/linux/fcntl.h \
+    $(wildcard include/config/ARCH_32BIT_OFF_T) \
+  include/uapi/linux/fcntl.h \
+  arch/arm/include/uapi/asm/fcntl.h \
+  include/uapi/asm-generic/fcntl.h \
+  include/uapi/linux/openat2.h \
+  include/linux/migrate_mode.h \
+  include/linux/percpu-rwsem.h \
+  include/linux/rcuwait.h \
+  include/linux/sched/signal.h \
+    $(wildcard include/config/SCHED_AUTOGROUP) \
+    $(wildcard include/config/BSD_PROCESS_ACCT) \
+    $(wildcard include/config/TASKSTATS) \
+    $(wildcard include/config/STACK_GROWSUP) \
+  include/linux/signal.h \
+    $(wildcard include/config/DYNAMIC_SIGFRAME) \
+    $(wildcard include/config/PROC_FS) \
+  include/linux/sched/jobctl.h \
+  include/linux/sched/task.h \
+    $(wildcard include/config/HAVE_EXIT_THREAD) \
+    $(wildcard include/config/ARCH_WANTS_DYNAMIC_TASK_STRUCT) \
+    $(wildcard include/config/HAVE_ARCH_THREAD_STRUCT_WHITELIST) \
+  include/linux/uaccess.h \
+    $(wildcard include/config/ARCH_HAS_SUBPAGE_FAULTS) \
+  include/linux/fault-inject-usercopy.h \
+    $(wildcard include/config/FAULT_INJECTION_USERCOPY) \
+  arch/arm/include/asm/uaccess.h \
+    $(wildcard include/config/CPU_SW_DOMAIN_PAN) \
+    $(wildcard include/config/CPU_USE_DOMAINS) \
+    $(wildcard include/config/HAVE_EFFICIENT_UNALIGNED_ACCESS) \
+    $(wildcard include/config/UACCESS_WITH_MEMCPY) \
+  arch/arm/include/asm/domain.h \
+    $(wildcard include/config/IO_36) \
+    $(wildcard include/config/CPU_CP15_MMU) \
+  arch/arm/include/generated/asm/unaligned.h \
+  include/asm-generic/unaligned.h \
+  include/linux/unaligned/packed_struct.h \
+  arch/arm/include/generated/asm/extable.h \
+  include/asm-generic/extable.h \
+  include/asm-generic/access_ok.h \
+    $(wildcard include/config/ALTERNATE_USER_ADDRESS_SPACE) \
+  include/linux/cred.h \
+    $(wildcard include/config/DEBUG_CREDENTIALS) \
+  include/linux/key.h \
+    $(wildcard include/config/KEY_NOTIFICATIONS) \
+    $(wildcard include/config/NET) \
+  include/linux/assoc_array.h \
+    $(wildcard include/config/ASSOCIATIVE_ARRAY) \
+  include/linux/sched/user.h \
+    $(wildcard include/config/VFIO_PCI_ZDEV_KVM) \
+    $(wildcard include/config/WATCH_QUEUE) \
+  include/linux/percpu_counter.h \
+  include/linux/ratelimit.h \
+  include/linux/rcu_sync.h \
+  include/linux/delayed_call.h \
+  include/linux/uuid.h \
+  include/uapi/linux/uuid.h \
+  include/linux/errseq.h \
+  include/linux/ioprio.h \
+  include/linux/sched/rt.h \
+  include/linux/iocontext.h \
+    $(wildcard include/config/BLK_ICQ) \
+  include/uapi/linux/ioprio.h \
+  include/linux/fs_types.h \
+  include/linux/mount.h \
+  include/linux/mnt_idmapping.h \
+  include/linux/slab.h \
+    $(wildcard include/config/DEBUG_SLAB) \
+    $(wildcard include/config/FAILSLAB) \
+    $(wildcard include/config/KFENCE) \
+    $(wildcard include/config/SLAB) \
+    $(wildcard include/config/SLUB) \
+    $(wildcard include/config/SLOB) \
+  include/linux/percpu-refcount.h \
+  include/linux/kasan.h \
+    $(wildcard include/config/KASAN_STACK) \
+    $(wildcard include/config/KASAN_VMALLOC) \
+  include/linux/kasan-enabled.h \
+  include/uapi/linux/fs.h \
+  include/linux/quota.h \
+    $(wildcard include/config/QUOTA_NETLINK_INTERFACE) \
+  include/uapi/linux/dqblk_xfs.h \
+  include/linux/dqblk_v1.h \
+  include/linux/dqblk_v2.h \
+  include/linux/dqblk_qtree.h \
+  include/linux/projid.h \
+  include/uapi/linux/quota.h \
+  include/linux/nfs_fs_i.h \
+  include/linux/gpio.h \
+    $(wildcard include/config/GPIOLIB) \
+    $(wildcard include/config/ARCH_HAVE_CUSTOM_GPIO_H) \
+  arch/arm/include/asm/gpio.h \
+  include/asm-generic/gpio.h \
+    $(wildcard include/config/ARCH_NR_GPIO) \
+  include/linux/gpio/driver.h \
+    $(wildcard include/config/GENERIC_MSI_IRQ_DOMAIN) \
+    $(wildcard include/config/IRQ_DOMAIN_HIERARCHY) \
+    $(wildcard include/config/GPIO_GENERIC) \
+    $(wildcard include/config/GPIOLIB_IRQCHIP) \
+    $(wildcard include/config/OF_GPIO) \
+    $(wildcard include/config/PINCTRL) \
+  include/linux/device.h \
+    $(wildcard include/config/GENERIC_MSI_IRQ) \
+    $(wildcard include/config/ENERGY_MODEL) \
+    $(wildcard include/config/DMA_OPS) \
+    $(wildcard include/config/DMA_DECLARE_COHERENT) \
+    $(wildcard include/config/DMA_CMA) \
+    $(wildcard include/config/SWIOTLB) \
+    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_DEVICE) \
+    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU) \
+    $(wildcard include/config/ARCH_HAS_SYNC_DMA_FOR_CPU_ALL) \
+    $(wildcard include/config/DMA_OPS_BYPASS) \
+    $(wildcard include/config/OF) \
+    $(wildcard include/config/DEVTMPFS) \
+    $(wildcard include/config/SYSFS_DEPRECATED) \
+  include/linux/dev_printk.h \
+  include/linux/energy_model.h \
+  include/linux/sched/cpufreq.h \
+    $(wildcard include/config/CPU_FREQ) \
+  include/linux/sched/topology.h \
+    $(wildcard include/config/SCHED_DEBUG) \
+    $(wildcard include/config/SCHED_CLUSTER) \
+    $(wildcard include/config/SCHED_MC) \
+    $(wildcard include/config/CPU_FREQ_GOV_SCHEDUTIL) \
+  include/linux/sched/idle.h \
+  include/linux/sched/sd_flags.h \
+  include/linux/ioport.h \
+  include/linux/klist.h \
+  include/linux/pm.h \
+    $(wildcard include/config/VT_CONSOLE_SLEEP) \
+    $(wildcard include/config/CXL_SUSPEND) \
+    $(wildcard include/config/PM) \
+    $(wildcard include/config/PM_CLK) \
+    $(wildcard include/config/PM_GENERIC_DOMAINS) \
+  include/linux/device/bus.h \
+    $(wildcard include/config/ACPI) \
+  include/linux/device/class.h \
+  include/linux/device/driver.h \
+  arch/arm/include/asm/device.h \
+    $(wildcard include/config/ARM_DMA_USE_IOMMU) \
+    $(wildcard include/config/ARCH_OMAP) \
+  include/linux/pm_wakeup.h \
+  include/linux/irq.h \
+    $(wildcard include/config/GENERIC_IRQ_EFFECTIVE_AFF_MASK) \
+    $(wildcard include/config/GENERIC_IRQ_IPI) \
+    $(wildcard include/config/DEPRECATED_IRQ_CPU_ONOFFLINE) \
+    $(wildcard include/config/GENERIC_IRQ_MIGRATION) \
+    $(wildcard include/config/GENERIC_PENDING_IRQ) \
+    $(wildcard include/config/HARDIRQS_SW_RESEND) \
+    $(wildcard include/config/GENERIC_IRQ_LEGACY) \
+    $(wildcard include/config/GENERIC_IRQ_MULTI_HANDLER) \
+  include/linux/irqhandler.h \
+  include/linux/irqreturn.h \
+  include/linux/io.h \
+    $(wildcard include/config/HAS_IOPORT_MAP) \
+    $(wildcard include/config/PCI) \
+  arch/arm/include/asm/io.h \
+    $(wildcard include/config/PCMCIA) \
+    $(wildcard include/config/NEED_MACH_IO_H) \
+  include/asm-generic/pci_iomap.h \
+    $(wildcard include/config/NO_GENERIC_PCI_IOPORT_MAP) \
+    $(wildcard include/config/GENERIC_PCI_IOMAP) \
+  include/asm-generic/io.h \
+    $(wildcard include/config/GENERIC_IOMAP) \
+    $(wildcard include/config/TRACE_MMIO_ACCESS) \
+    $(wildcard include/config/GENERIC_IOREMAP) \
+  include/linux/logic_pio.h \
+    $(wildcard include/config/INDIRECT_PIO) \
+  include/linux/fwnode.h \
+  include/linux/vmalloc.h \
+    $(wildcard include/config/HAVE_ARCH_HUGE_VMALLOC) \
+  arch/arm/include/asm/vmalloc.h \
+  arch/arm/include/asm/irq.h \
+    $(wildcard include/config/SPARSE_IRQ) \
+  arch/arm/include/generated/asm/irq_regs.h \
+  include/asm-generic/irq_regs.h \
+  include/linux/irqdesc.h \
+    $(wildcard include/config/GENERIC_IRQ_DEBUGFS) \
+    $(wildcard include/config/IRQ_DOMAIN) \
+  arch/arm/include/asm/hw_irq.h \
+  include/linux/irqchip/chained_irq.h \
+  include/linux/irqdomain.h \
+    $(wildcard include/config/IRQ_DOMAIN_NOMAP) \
+  include/linux/of.h \
+    $(wildcard include/config/OF_DYNAMIC) \
+    $(wildcard include/config/SPARC) \
+    $(wildcard include/config/OF_PROMTREE) \
+    $(wildcard include/config/OF_KOBJ) \
+    $(wildcard include/config/OF_NUMA) \
+    $(wildcard include/config/OF_OVERLAY) \
+  include/linux/mod_devicetable.h \
+  include/linux/property.h \
+  include/linux/pinctrl/pinctrl.h \
+    $(wildcard include/config/GENERIC_PINCONF) \
+  include/linux/seq_file.h \
+  include/linux/string_helpers.h \
+  include/linux/ctype.h \
+  include/linux/pinctrl/pinctrl-state.h \
+  include/linux/pinctrl/devinfo.h \
+  include/linux/pinctrl/consumer.h \
+  include/linux/pinctrl/pinconf-generic.h \
+  include/linux/pinctrl/machine.h \
+  arch/arm/include/generated/asm/msi.h \
+  include/asm-generic/msi.h \
+  include/linux/gpio/consumer.h \
+    $(wildcard include/config/GPIO_SYSFS) \
+  include/linux/interrupt.h \
+    $(wildcard include/config/IRQ_FORCED_THREADING) \
+    $(wildcard include/config/GENERIC_IRQ_PROBE) \
+    $(wildcard include/config/IRQ_TIMINGS) \
+  include/linux/hardirq.h \
+  include/linux/context_tracking_state.h \
+    $(wildcard include/config/CONTEXT_TRACKING_USER) \
+    $(wildcard include/config/CONTEXT_TRACKING) \
+  include/linux/ftrace_irq.h \
+    $(wildcard include/config/HWLAT_TRACER) \
+    $(wildcard include/config/OSNOISE_TRACER) \
+  include/linux/vtime.h \
+    $(wildcard include/config/VIRT_CPU_ACCOUNTING) \
+    $(wildcard include/config/IRQ_TIME_ACCOUNTING) \
+  arch/arm/include/asm/hardirq.h \
+  include/asm-generic/hardirq.h \
+  arch/arm/include/asm/sections.h \
+  include/asm-generic/sections.h \
+    $(wildcard include/config/HAVE_FUNCTION_DESCRIPTORS) \
 
-/home/ubuntu/pi_bsp/drivers/p335_kerneltimer/kerneltimer.mod.o: $(deps_/home/ubuntu/pi_bsp/drivers/p335_kerneltimer/kerneltimer.mod.o)
+/home/ubuntu/pi_bsp/drivers/p399_ledkey_blockio/ledkey_dev.o: $(deps_/home/ubuntu/pi_bsp/drivers/p399_ledkey_blockio/ledkey_dev.o)
 
-$(deps_/home/ubuntu/pi_bsp/drivers/p335_kerneltimer/kerneltimer.mod.o):
+$(deps_/home/ubuntu/pi_bsp/drivers/p399_ledkey_blockio/ledkey_dev.o):

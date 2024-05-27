@@ -45,7 +45,17 @@ int main(int argc,char * argv[])
 	
 	buff = 0;
 	do {
-		read(dev,&buff,sizeof(buff));
+		ret=read(dev,&buff,sizeof(buff));
+		if(ret == 0)
+		{
+			printf(" block mode : %d\n",buff);
+			continue;
+		}
+		else if(ret <0) 
+		{
+			perror("read()");
+			return 4;
+		}
 		printf("key : %d\n",buff);
 		if(oldBuff != buff)
 		{
