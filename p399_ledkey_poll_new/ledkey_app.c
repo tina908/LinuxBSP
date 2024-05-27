@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 		printf("Usage : %s [led_data(0x00~0xff)]\n",argv[0]);
 		return 2;
 	}
-	printf("Author:KSH\n");
+	printf("Author:LSB\n");
     timer_val = atoi(argv[2]);
 	info.timer_val = timer_val;
 
@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
 	while(loopFlag)
 	{
 
-		ret = poll(Events, 2, 1000);
+		ret = poll(Events, 2, 1000); //1sec
 		if(ret==0)
 		{
   		printf("poll time out : %d\n",cnt++);
@@ -125,3 +125,4 @@ int main(int argc, char *argv[])
 	close(dev);
 	return 0;
 }
+

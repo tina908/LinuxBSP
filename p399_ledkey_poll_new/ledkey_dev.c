@@ -26,12 +26,17 @@
 #define GPIOKEYCNT 8
 #define DEBUG 1
 
-static int timer_val = 100;
-module_param(timer_val,int,0);
+static int timerVal = 100;
+module_param(timerVal,int,0);
 static int ledVal = 0;
 module_param(ledVal,int,0);
 struct timer_list timerLed;
 struct file_operations ledkey_fops;
+
+static int onevalue = 1;
+static char * twostring = NULL;
+module_param(onevalue, int ,0);
+module_param(twostring,charp,0);
 
 static int gpioLed[GPIOLEDCNT] = {6,7,8,9,10,11,12,13};
 static int gpioKey[GPIOKEYCNT] = {16,17,18,19,20,21,22,23};
@@ -65,13 +70,14 @@ void kerneltimer_func(struct timer_list *t)
     printk("ledVal : %#04x\n",(unsigned int)(ledVal));
 #endif
     ledVal = ~ledVal & 0xff;
-    mod_timer(t,get_jiffies_64() + timer_val);
+    mod_timer(t,get_jiffies_64() + timerVal);
 }
 
 static long ledkey_ioctl (struct file *filp, unsigned int cmd, unsigned long arg)
 {
 
-    keyled_data ctrl_info;
+    ioctl_test_info ctrl_info = {0,{0}};
+	//keyled_data ctrl_info;
     int err=0, size;
     if( _IOC_TYPE( cmd ) != IOCTLTEST_MAGIC ) return -EINVAL;
     if( _IOC_NR( cmd ) >= IOCTLTEST_MAXNR ) return -EINVAL;
@@ -89,27 +95,63 @@ static long ledkey_ioctl (struct file *filp, unsigned int cmd, unsigned long arg
     {
 		char buf;
 		case TIMER_STOP :
-			kerneltimer_func(0);
-			gpioLedFree();
-			gpioKeyFree();
+			del_timer(&timerLed);
 			break;
 		case TIMER_START :
-			buf = gpioKeyGet();
+			kerneltimer_registertimer(timerVal);
 			return buf;
 		case TIMER_VALUE :
-			 err = copy_from_user((void *)&ctrl_info,(void *)arg,size);
+			keyled_data * pKeyLedData = (keyled_data *)arg;
+			timerVal = pKeyLedData->timer_val;
+            break;
+        case IOCTLTEST_KEYLEDINIT :
+            gpioLedInit();
+            gpioKeyInit();
+            break;
+        case IOCTLTEST_KEYINIT :
+            gpioKeyInit();
+            break;
+        case IOCTLTEST_LEDINIT :
+            gpioLedInit();
+            break;
+        case IOCTLTEST_KEYLEDFREE :
+            gpioLedFree();
+            gpioKeyFree();
+            break;
+        case IOCTLTEST_LEDOFF :
+            gpioLedSet(0);
+            break;
+        case IOCTLTEST_LEDON :
+            gpioLedSet(255);
+            break;
+        case IOCTLTEST_GETSTATE :
+            buf = gpioKeyGet();
+            return buf;
+        case IOCTLTEST_READ :
+            ctrl_info.buff[0] = gpioKeyGet();
+            if(ctrl_info.buff[0] != 0)
+                ctrl_info.size=1;
+            err = copy_to_user((void *)arg,(const void *)&ctrl_info,size);
+            break;
+
+        case IOCTLTEST_WRITE :
+            err = copy_from_user((void *)&ctrl_info,(void *)arg,size);
+            if(ctrl_info.size == 1)
+                gpioLedSet(ctrl_info.buff[0]);
+            break;
+        case IOCTLTEST_WRITE_READ :
+            err = copy_from_user((void *)&ctrl_info,(void *)arg,size);
             if(ctrl_info.size == 1)
                 gpioLedSet(ctrl_info.buff[0]);
 
             ctrl_info.buff[0] = gpioKeyGet();
             if(ctrl_info.buff[0] != 0)
-                ctrl_info.size=1;
+				ctrl_info.size=1;
             else
                 ctrl_info.size=0;
 
             err = copy_to_user((void *)arg,(const void *)&ctrl_info,size);
             break;
-
 		default:
             err =-E2BIG;
             break;
@@ -160,6 +202,7 @@ static int gpioLedInit(void)
 static void gpioLedSet(long val)
 {
 	int i;
+	ledVal = val;
 	for(i=0;i<GPIOLEDCNT;i++)
 	{
 //		gpio_set_value(gpioLed[i],(val>>i) & 0x1);
@@ -342,8 +385,22 @@ int ledkey_release (struct inode *inode, struct file *filp)
 	module_put(THIS_MODULE);
 	gpioKeyIrqFree(filp->private_data);
 	if(filp->private_data)
+	{
 		kfree(filp->private_data);
-    return 0;
+	}
+	if(gpio_is_valid(gpioLed[0]))
+	{  
+		gpioLedFree();
+	}
+    if(gpio_is_valid(gpioKey[0]))
+	{   
+		gpioKeyFree();
+	}
+	if(timer_pending(&timerLed))
+	{	
+		del_timer(&timerLed);
+	}
+	return 0;
 }
 irqreturn_t key_isr(int irq, void * data)
 {
@@ -373,7 +430,7 @@ struct file_operations ledkey_fops =
 	.unlocked_ioctl = ledkey_ioctl,
     .release  = ledkey_release,  
 };
-
+/*
 int ledkey_init(void)
 {
     int result=0;
@@ -408,9 +465,39 @@ void ledkey_exit(void)
 	if(timer_pending(&timerLed))
         del_timer(&timerLed);
 }
+*/
+int ledkey_kerneltimer_init(void)
+{
+    int result;
+    printk( "ledkey ledkey_init \n" );    
+#if DEBUG
+    printk("timerVal : %d, sec: %d \n", timerVal, timerVal/HZ);
+#endif
+	//kerneltimer_registertimer(timerVal);
+    result = register_chrdev( LEDKEY_DEV_MAJOR, LEDKEY_DEV_NAME, &ledkey_fops);
+    if (result < 0) 
+		return result;
+	result = gpioLedInit();
+	if(result < 0)
+        return result;
+	result = gpioKeyInit();
+	if(result < 0)
+        return result;
+    return 0;
+}
 
-module_init(ledkey_init);
-module_exit(ledkey_exit);
+void ledkey_kerneltimer_exit(void)
+{
+    printk( "ledkey ledkey_exit \n" );    
+    unregister_chrdev( LEDKEY_DEV_MAJOR, LEDKEY_DEV_NAME );
+	gpioLedSet(0x00);
+	gpioLedFree();
+	gpioKeyFree();
+
+}
+
+module_init(ledkey_kerneltimer_init);
+module_exit(ledkey_kerneltimer_exit);
 MODULE_AUTHOR("KCCI-AIOT");
 MODULE_DESCRIPTION("ledkey module");
 MODULE_LICENSE("Dual BSD/GPL");
